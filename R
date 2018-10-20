@@ -1,0 +1,18 @@
+
+data <- read.csv("raw.csv")
+print(data)
+data$year_of_birth <- (2018 - data$Age)
+
+add_col <- function(one_file) {
+  data <- read.csv(one_file, header = T)
+  data$year_of_birth <- (2018 - data$Age)
+  write.csv(data,
+            file = "raw.csv",
+            append = FALSE,
+            quote = FALSE,
+            sep = ",",
+            row.names = FALSE,
+            col.names = TRUE)
+  return(data)
+}
+print(data)
